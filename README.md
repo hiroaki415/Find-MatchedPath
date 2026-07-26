@@ -1,18 +1,15 @@
 # Find-MatchedPath
----
 PowerShell module which provides a command to search file or directory matched with specified path including regular expression.
 
 You can embed regular expressions into folder and file names using a proprietary DSL `<<regex>>` to perform hierarchical searches.
 
 
 ## Usage
----
 ```powershell
 Find-MatchedPath -Expression "C:\directory\to\seek\foler<<[ABC]>>\file<<06\d{2}>>.jpg"
 ```
 
 ## Example：
----
 Here is sample directory structure for test.
 ```
 $PSScriptRoot\Tests\TestFiles (current directory)
@@ -58,8 +55,7 @@ Find-MatchedPath -Expression "..\..\TestFiles\Dir<<[123]>>\Folder{<<[ABC]>>}\@20
 ```
 
 ## Output
----
-Find-MatchedPath Cmdlet returns System.Array of PSCustomObject.
+Find-MatchedPath Cmdlet returns `System.Array` of `PSCustomObject`.
 
 Each object has properties below:
 
@@ -68,12 +64,10 @@ Each object has properties below:
 
 
 ## License
----
 MIT License
 
 
 ## Author
----
 hiroaki415
 
 PowerShell / Search / Path / Regex / RegExp / Regular Expression /
