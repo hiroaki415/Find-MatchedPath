@@ -98,7 +98,7 @@ $PSScriptRoot\Tests\TestFiles\Dir2\Folder{C}\@2024\File-[1101](#0522).txt 1101 0
 
 - `<<regex>>` capturing is available only after last `.\` or `..\`.
 ```powershell
-Find-MatchedPath -Expression "..\Test<<.>>iles\..\<<.>>stiles\Dir2\Folder{C}\@2024\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
+Find-MatchedPath -Expression "..\Test<<.>>iles\..\<<.>>estFiles\Dir2\Folder{C}\@2024\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 # (Note: Although this pattern is supported, its practical use cases may be limited.)
 ```
 ```
