@@ -31,7 +31,7 @@
 
     # Description of the functionality provided by this module
     Description = @'
-        PowerShell module which provides a command to search file or directory matched with specified path including regular expression.
+        A PowerShell module that provides a command for searching files and directories using path expressions that include embedded regular expressions.
 '@
 
     # Minimum version of the PowerShell engine required by this module
