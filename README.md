@@ -6,7 +6,7 @@ You can embed regular expressions into folder and file names using the custom DS
 
 ## Usage
 ```powershell
-Find-MatchedPath -Expression "C:\directory\to\seek\foler<<[ABC]>>\file<<06\d{2}>>.jpg"
+Find-MatchedPath -Expression "C:\directory\to\seek\folder<<[ABC]>>\file<<06\d{2}>>.jpg"
 ```
 
 ## Example：
