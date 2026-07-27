@@ -26,7 +26,7 @@ $PSScriptRoot\Tests\TestFiles (current directory)
             └── File-[0011](#0408).txt
             └── File-[0111](#0516).txt
 ```
-First of all, get all `.\Dir\*\Folder{\*}\@202\*\File-\[\*\](#\*).txt`.
+To start with, try to get all `.\Dir*\Folder{*}\@202*\File-[*](#*).txt`.
 ```powershell
 Find-MatchedPath -Expression "$PSScriptRoot\TestFiles\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 ```
@@ -43,15 +43,15 @@ $PSScriptRoot\Tests\TestFiles\Dir1\Folder{A}\@2025\File-[0110](#0227).txt 1 A 25
 
 Of course, you can use relative path expression instead.
 ```powershell
-Find-MatchedPath -Expression "TestFiles\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
+Find-MatchedPath -Expression "Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 ```
 Or
 ```powershell
-Find-MatchedPath -Expression ".\TestFiles\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
+Find-MatchedPath -Expression ".\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 ```
-If your location is `$PSScriptRoot\Tests\TestFiles\Dir3\` now, command below returns same result.
+If your location is `$PSScriptRoot\Tests\TestFiles\Dir3\Folder{B}` now, command below returns same result.
 ```powershell
-Find-MatchedPath -Expression "..\..\TestFiles\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
+Find-MatchedPath -Expression "..\..\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 ```
 
 ## Output
@@ -60,14 +60,10 @@ Find-MatchedPath Cmdlet returns `System.Array` of `PSCustomObject`.
 Each object has properties below:
 
 - Path : FullName of file or directory matched with Expression
-- \<capture goups\> : String captured by regular expression (1, 2, 3,..)
+- \<capture groups\> : String captured by regular expression (1, 2, 3,..)
 
 
 ## License
 MIT License
 
-
-## Author
-hiroaki415
-
-PowerShell / Search / Path / Regex / RegExp / Regular Expression /
+PowerShell / Search / Path / Regex / RegExp / Regular Expression
