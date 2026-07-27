@@ -1,12 +1,12 @@
 function Find-MatchedPath {
     <#
     .SYNOPSIS
-      Search file or directory matched with specified path including regular expression.
+      Search files and directories using path expressions that include embedded regular expressions.
     .DESCRIPTION
-      Search file or directory matched with specified path including regular expression.
+      Search files and directories using path expressions that include embedded regular expressions.
     .PARAMETER Expresion
-      Path including regular expression.
-      Regular expression must be surrounded them by << >> in Expression.
+      Path expression that includes regular expression.
+      Regular expression must be surrounded them by << >>.
     .EXAMPLE
       PS> Find-MatchedPath -Expression C:\directory\to\seek\foler<<[ABC]>>\file<<06\d{2}>>.jpg
     .EXAMPLE
@@ -17,11 +17,11 @@ function Find-MatchedPath {
       PS> Find-MatchedPath -Expression \\host\shared\directory\foler<<[ABC]>>\file<<06\d{2}>>.jpg
     .OUTPUTS
       System.Array of PSCustomObject.
-      Each object has properties below:
+      Each object contains the following properties:
         - Path : FullName of file or directory matched with Expression
         - <capture goups> : String captured by regular expression (1, 2, 3,..)
     .LINK
-      https://github.com/
+      https://github.com/hiroaki415/Find-MatchedPath/tree/main
     .NOTES
       Author: hiroaki415
 #>
