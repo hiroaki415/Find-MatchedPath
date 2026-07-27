@@ -45,11 +45,13 @@ function Find-MatchedPath {
             elseif ($tokens[$i] -eq "\.\.") {
                 $parentPath = Split-Path -Path $item.PSParentPath -Parent
                 $children = @(Get-ChildItem -LiteralPath $parentPath -ErrorAction SilentlyContinue)
-                $nextItems = ($nextItems + $children)  | Select-Object -Unique
+                # $nextItems = @(($nextItems + $children) | Select-Object -Unique)
+                $nextItems = @(($nextItems + $children) | Group-Object FullName | ForEach-Object { $_.Group[0] })
             }
             elseif ($item.PSIsContainer -and $item.Name -match $pattern) {
                 $children = @(Get-ChildItem -LiteralPath $item.FullName -ErrorAction SilentlyContinue)
-                $nextItems = @(($nextItems + $children)  | Select-Object -Unique)
+                # $nextItems = @(($nextItems + $children) | Select-Object -Unique)
+                $nextItems = @(($nextItems + $children) | Group-Object FullName | ForEach-Object { $_.Group[0] })
             }
         }
         if ($nextItems.Count -le 0) { return , @() }
