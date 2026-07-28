@@ -6,7 +6,7 @@ You can embed regular expressions into folder and file names using the custom DS
 
 ## Usage
 ```powershell
-Find-MatchedPath -Expression "C:\directory\to\seek\folder<<[ABC]>>\file<<06\d{2}>>.jpg"
+Find-MatchedPath -Expression "C:\directory\to\search\folder<<[ABC]>>\file<<06\d{2}>>.jpg"
 ```
 
 ## Example：
@@ -26,7 +26,7 @@ $PSScriptRoot\Tests\TestFiles (current directory)
             └── File-[0011](#0408).txt
             └── File-[0111](#0516).txt
 ```
-As a starting point, try retrieving all files matching `.\Dir*\Folder{*}\@202*\File-[*](#*).txt`.
+As a starting point, try to get all files matching `.\Dir*\Folder{*}\@202*\File-[*](#*).txt`.
 ```powershell
 Find-MatchedPath -Expression "$PSScriptRoot\TestFiles\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 ```
@@ -49,7 +49,7 @@ Or
 ```powershell
 Find-MatchedPath -Expression ".\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 ```
-If your location is `$PSScriptRoot\Tests\TestFiles\Dir3\Folder{B}` now, the following command produces the same results.
+If your location is `$PSScriptRoot\Tests\TestFiles\Dir3\Folder{B}`, the following command returns the same results.
 ```powershell
 Find-MatchedPath -Expression "..\..\Dir<<[123]>>\Folder{<<[ABC]>>}\@20<<(?:24|25|26)>>\File-[<<[01]{4}>>](#<<\d{4}>>).txt"
 ```
@@ -59,20 +59,20 @@ For example, if you want to search for files that contain `[*1*1]` only under `F
 Find-MatchedPath -Expression ".\Dir<<[123]>>\Folder{<<[AB]>>}\@20<<(?:24|25|26)>>\File-[<<[01]1[01]1>>](#<<\d{4}>>).txt"
 ```
 ```
-Path                                                                                1 2 3  4    5
-----                                                                                - - -  -    -
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir1\Folder{A}\@2025\File-[0111](#1225).txt 1 A 25 0111 1225
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir1\Folder{B}\@2026\File-[0101](#0210).txt 1 B 26 0101 0210
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir1\Folder{B}\@2026\File-[0101](#0617).txt 1 B 26 0101 0617
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir2\Folder{A}\@2025\File-[0111](#0809).txt 2 A 25 0111 0809
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir2\Folder{A}\@2025\File-[1111](#0312).txt 2 A 25 1111 0312
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir2\Folder{A}\@2026\File-[0101](#1201).txt 2 A 26 0101 1201
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir2\Folder{B}\@2025\File-[1101](#0411).txt 2 B 25 1101 0411
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir2\Folder{B}\@2025\File-[1101](#0612).txt 2 B 25 1101 0612
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir3\Folder{A}\@2024\File-[0101](#1013).txt 3 A 24 0101 1013
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir3\Folder{A}\@2026\File-[1111](#0930).txt 3 A 26 1111 0930
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir3\Folder{B}\@2025\File-[1101](#0430).txt 3 B 25 1101 0430
-$PSScriptRoot\Tests\TestFiles\TestFiles\Dir3\Folder{B}\@2026\File-[1101](#0716).txt 3 B 26 1101 0716
+Path                                                                      1 2 3  4    5
+----                                                                      - - -  -    -
+$PSScriptRoot\Tests\TestFiles\Dir1\Folder{A}\@2025\File-[0111](#1225).txt 1 A 25 0111 1225
+$PSScriptRoot\Tests\TestFiles\Dir1\Folder{B}\@2026\File-[0101](#0210).txt 1 B 26 0101 0210
+$PSScriptRoot\Tests\TestFiles\Dir1\Folder{B}\@2026\File-[0101](#0617).txt 1 B 26 0101 0617
+$PSScriptRoot\Tests\TestFiles\Dir2\Folder{A}\@2025\File-[0111](#0809).txt 2 A 25 0111 0809
+$PSScriptRoot\Tests\TestFiles\Dir2\Folder{A}\@2025\File-[1111](#0312).txt 2 A 25 1111 0312
+$PSScriptRoot\Tests\TestFiles\Dir2\Folder{A}\@2026\File-[0101](#1201).txt 2 A 26 0101 1201
+$PSScriptRoot\Tests\TestFiles\Dir2\Folder{B}\@2025\File-[1101](#0411).txt 2 B 25 1101 0411
+$PSScriptRoot\Tests\TestFiles\Dir2\Folder{B}\@2025\File-[1101](#0612).txt 2 B 25 1101 0612
+$PSScriptRoot\Tests\TestFiles\Dir3\Folder{A}\@2024\File-[0101](#1013).txt 3 A 24 0101 1013
+$PSScriptRoot\Tests\TestFiles\Dir3\Folder{A}\@2026\File-[1111](#0930).txt 3 A 26 1111 0930
+$PSScriptRoot\Tests\TestFiles\Dir3\Folder{B}\@2025\File-[1101](#0430).txt 3 B 25 1101 0430
+$PSScriptRoot\Tests\TestFiles\Dir3\Folder{B}\@2026\File-[1101](#0716).txt 3 B 26 1101 0716
 ```
 
 ## Output
