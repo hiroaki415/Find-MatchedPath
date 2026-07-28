@@ -31,7 +31,7 @@
 
     # Description of the functionality provided by this module
     Description = @'
-        A PowerShell module that provides a command for searching files and directories using path expressions that include embedded regular expressions.
+A PowerShell module that provides a command for searching files and directories using path expressions that include embedded regular expressions.
 '@
 
     # Minimum version of the PowerShell engine required by this module
@@ -100,10 +100,10 @@
             Tags = @('regex','path','search')
 
             # A URL to the license for this module.
-            # LicenseUri = ''
+            # LicenseUri = 'https://github.com/hiroaki415/Find-MatchedPath/blob/main/LICENSE'
 
             # A URL to the main website for this project.
-            # ProjectUri = ''
+            # ProjectUri = 'https://github.com/hiroaki415/Find-MatchedPath'
 
             # A URL to an icon representing this module.
             # IconUri = ''
