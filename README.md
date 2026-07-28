@@ -3,10 +3,14 @@ A PowerShell module that provides a command for searching files and directories 
 
 You can embed regular expressions into folder and file names using the custom DSL `<<regex>>`, enabling flexible hierarchical searches.
 
-
 ## Usage
 ```powershell
 Find-MatchedPath -Expression "C:\directory\to\search\folder<<[ABC]>>\file<<06\d{2}>>.jpg"
+```
+
+## Installation
+```powershell
+Install-Module -Name Find-MatchedPath
 ```
 
 ## Example：
